@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Support — OrbitalNet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="icon" href="https://fav.farm/🛰️" />
+  <link rel="stylesheet" href="/assets/css/styles.css" />
+  <script defer src="/assets/js/main.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="/index.html" class="logo">🛰️ OrbitalNet</a>
+      <nav id="mainNav" class="main-nav">
+        <a href="/index.html">Home</a>
+        <a href="/plans.html">Plans</a>
+        <a href="/coverage.html">Coverage</a>
+        <a href="/speedtest.html">Speed Test</a>
+        <a href="/about.html">About</a>
+        <a href="/support.html" class="active btn btn-outline">Support</a>
+      </nav>
+      <button class="nav-toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="scroll-progress" aria-hidden="true"></div>
+  </header>
+
+  <main class="container">
+    <section id="faq" class="page-hero">
+      <h1 class="reveal">Help Center</h1>
+      <p class="lead reveal" style="transition-delay:.05s">Answers to common questions. Still need help? Message us below.</p>
+    </section>
+
+    <section class="faq grid-2">
+      <div class="card reveal">
+        <h3>How do I install the kit?</h3>
+        <p>Use the OrbitalNet app to find a clear view of the sky. Mount the dish securely and connect the included router. Most users are online in under 10 minutes.</p>
+      </div>
+      <div class="card reveal" style="transition-delay:.05s">
+        <h3>What speeds should I expect?</h3>
+        <p>Typical 50–200 Mbps down depending on region and plan. Try our <a href="/speedtest.html">Speed Test</a>.</p>
+      </div>
+      <div class="card reveal" style="transition-delay:.1s">
+        <h3>Can I pause my service?</h3>
+        <p>Yes. Roam plans support pausing monthly when you do not need service.</p>
+      </div>
+      <div class="card reveal" style="transition-delay:.15s">
+        <h3>Do weather conditions affect service?</h3>
+        <p>Heavy rain and dense snow can impact throughput. Our heated dish and adaptive routing minimize disruptions.</p>
+      </div>
+    </section>
+
+    <section id="contact" class="contact reveal">
+      <form class="contact-form" action="mailto:support@orbitalnet.example" method="post" enctype="text/plain">
+        <h2>Contact Support</h2>
+        <div class="form-grid">
+          <label>
+            <span>Name</span>
+            <input required name="name" placeholder="Your name" />
+          </label>
+          <label>
+            <span>Email</span>
+            <input required type="email" name="email" placeholder="you@example.com" />
+          </label>
+          <label class="full">
+            <span>Message</span>
+            <textarea required name="message" rows="5" placeholder="How can we help?"></textarea>
+          </label>
+        </div>
+        <button class="btn btn-primary">Send</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <div class="logo">🛰️ OrbitalNet</div>
+        <p>Connecting every horizon. © <span id="year"></span></p>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/coverage.html">Coverage</a></li>
+          <li><a href="/plans.html">Plans</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Support</h4>
+        <ul>
+          <li><a href="/support.html#faq">FAQ</a></li>
+          <li><a href="/support.html#contact">Contact</a></li>
+          <li><a href="/speedtest.html">Speed Test</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
