@@ -17,8 +17,8 @@
   <canvas id="starfield" aria-hidden="true"></canvas>
   <header class="site-header">
     <div class="container nav">
-      <a href="/index.html" class="logo">🛰️ OrbitalNet</a>
-      <nav id="mainNav" class="main-nav">
+      <a href="/index.html" class="logo" data-anim="fade-right">🛰️ OrbitalNet</a>
+      <nav id="mainNav" class="main-nav" data-anim="fade-left" style="--a-delay:.05s">
         <a href="/index.html" class="active">Home</a>
         <a href="/plans.html">Plans</a>
         <a href="/coverage.html">Coverage</a>
@@ -39,15 +39,15 @@
     <section class="hero">
       <div class="container hero-inner">
         <div class="hero-text">
-          <h1 class="reveal">Satellite Internet, Reimagined</h1>
-          <p class="lead reveal" style="transition-delay: .05s">
+          <h1 class="reveal" data-anim="fade-up">Satellite Internet, Reimagined</h1>
+          <p class="lead reveal" data-anim="fade-up" style="--a-delay:.05s">
             High-speed, low-latency connectivity — from cities to the most remote horizons. Get online in minutes with OrbitalNet.
           </p>
-          <div class="cta reveal" style="transition-delay: .1s">
+          <div class="cta reveal" data-anim="zoom-in" style="--a-delay:.1s">
             <a href="/plans.html" class="btn btn-primary">View Plans</a>
             <a href="/speedtest.html" class="btn btn-ghost">Run Speed Test</a>
           </div>
-          <div class="hero-trust reveal" style="transition-delay: .15s">
+          <div class="hero-trust reveal" data-anim="fade-up" style="--a-delay:.15s">
             <img alt="orbit" src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?q=80&w=1200&auto=format&fit=crop"/>
             <div>
               <strong>Trusted worldwide</strong>
@@ -55,29 +55,29 @@
             </div>
           </div>
         </div>
-        <div class="hero-art reveal" style="transition-delay: .1s">
+        <div class="hero-art reveal" data-anim="rotate-in" style="--a-delay:.1s">
           <img alt="satellite" src="https://images.unsplash.com/photo-1543946207-39bd91e70ca7?q=80&w=1200&auto=format&fit=crop"/>
           <div class="orbit orbit-1"></div>
           <div class="orbit orbit-2"></div>
         </div>
       </div>
-      <div class="gradient-glow" aria-hidden="true"></div>
+      <div class="gradient-glow" aria-hidden="true" data-parallax="0.1"></div>
     </section>
 
     <section class="features container">
-      <h2 class="section-title reveal">Why OrbitalNet</h2>
+      <h2 class="section-title reveal" data-anim="fade-up">Why OrbitalNet</h2>
       <div class="grid-3">
-        <div class="card reveal">
+        <div class="card reveal" data-anim="fade-up">
           <div class="icon">⚡</div>
           <h3>Fast Everywhere</h3>
           <p>Stream, game, and video call with speeds up to 200 Mbps — from mountaintops to mid-ocean.</p>
         </div>
-        <div class="card reveal" style="transition-delay: .05s">
+        <div class="card reveal" data-anim="fade-up" style="--a-delay:.05s">
           <div class="icon">🛰️</div>
           <h3>Modern Constellation</h3>
           <p>Low-earth-orbit satellites for lower latency and a stable, resilient connection.</p>
         </div>
-        <div class="card reveal" style="transition-delay: .1s">
+        <div class="card reveal" data-anim="fade-up" style="--a-delay:.1s">
           <div class="icon">🧭</div>
           <h3>Simple Setup</h3>
           <p>Self-aligning dish and app-guided install. Online in under 10 minutes.</p>
@@ -86,7 +86,7 @@
     </section>
 
     <section class="plans-cta container">
-      <div class="cta-card reveal">
+      <div class="cta-card reveal" data-anim="zoom-in">
         <div>
           <h2>Plans for every journey</h2>
           <p>Home, RV, maritime, or enterprise — flexible monthly plans with no annual contracts.</p>
@@ -96,24 +96,24 @@
     </section>
 
     <section class="stats container">
-      <div class="stat reveal"><span class="stat-num" data-target="120">0</span><span class="stat-label">Countries</span></div>
-      <div class="stat reveal" style="transition-delay:.05s"><span class="stat-num" data-target="200">0</span><span class="stat-label">Mbps Peak</span></div>
-      <div class="stat reveal" style="transition-delay:.1s"><span class="stat-num" data-target="40">0</span><span class="stat-label">ms Median Ping</span></div>
-      <div class="stat reveal" style="transition-delay:.15s"><span class="stat-num" data-target="99.9">0</span><span class="stat-label">% Uptime</span></div>
+      <div class="stat reveal" data-anim="fade-up"><span class="stat-num" data-target="120">0</span><span class="stat-label">Countries</span></div>
+      <div class="stat reveal" data-anim="fade-up" style="--a-delay:.05s"><span class="stat-num" data-target="200">0</span><span class="stat-label">Mbps Peak</span></div>
+      <div class="stat reveal" data-anim="fade-up" style="--a-delay:.1s"><span class="stat-num" data-target="40">0</span><span class="stat-label">ms Median Ping</span></div>
+      <div class="stat reveal" data-anim="fade-up" style="--a-delay:.15s"><span class="stat-num" data-target="99.9">0</span><span class="stat-label">% Uptime</span></div>
     </section>
 
     <section class="testimonials container">
-      <h2 class="section-title reveal">Loved by Explorers</h2>
+      <h2 class="section-title reveal" data-anim="fade-up">Loved by Explorers</h2>
       <div class="grid-3">
-        <blockquote class="card reveal">
+        <blockquote class="card reveal" data-anim="fade-up">
           <p>We stream in our RV under the stars. Zero buffers, just bliss.</p>
           <footer>— Alex & Sam</footer>
         </blockquote>
-        <blockquote class="card reveal" style="transition-delay:.05s">
+        <blockquote class="card reveal" data-anim="fade-up" style="--a-delay:.05s">
           <p>Remote island clinic online at last. Telemedicine works flawlessly.</p>
           <footer>— Dr. N. Latu</footer>
         </blockquote>
-        <blockquote class="card reveal" style="transition-delay:.1s">
+        <blockquote class="card reveal" data-anim="fade-up" style="--a-delay:.1s">
           <p>Fishing vessel ops are smoother with live data and crew calls.</p>
           <footer>— Captain Ruiz</footer>
         </blockquote>

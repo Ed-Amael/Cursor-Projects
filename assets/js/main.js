@@ -21,7 +21,7 @@ if (scrollBar) {
   onScroll();
 }
 
-// Reveal on scroll
+// Reveal on scroll (supports [data-anim])
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -31,7 +31,7 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.18 });
 
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+document.querySelectorAll('.reveal, [data-anim]').forEach(el => observer.observe(el));
 
 // Count up stats
 function animateCount(el) {
@@ -86,4 +86,19 @@ document.querySelectorAll('.stat-num').forEach(el => animateCount(el));
     requestAnimationFrame(tick);
   }
   tick();
+})();
+
+// Parallax elements
+(function parallax(){
+  const els = Array.from(document.querySelectorAll('[data-parallax]'));
+  if (!els.length) return;
+  const onScroll = () => {
+    const y = window.scrollY || document.documentElement.scrollTop;
+    els.forEach(el => {
+      const speed = parseFloat(el.getAttribute('data-parallax')) || 0.2;
+      el.style.transform = `translateY(${y * speed}px)`;
+    });
+  };
+  document.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
 })();
