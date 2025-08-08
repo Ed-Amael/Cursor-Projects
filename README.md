@@ -19,7 +19,10 @@ Open `http://localhost:5173`.
 - `speedtest.html`: Real-time speed test
 - `about.html`: About & technology
 - `support.html`: FAQ & contact
+- `gov-services.html`: Government services portal for rural communities
+- `login.html`: Login UI with simulated auth (localStorage)
 
 ## Notes
 - Speed test uses `speed.cloudflare.com` public endpoints and `1.1.1.1` trace for IP. Results vary by device/network.
 - All styling and scripts are under `assets/`.
+- Login is client-side only for demo purposes.

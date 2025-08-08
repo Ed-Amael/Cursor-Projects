@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Coverage — OrbitalNet</title>
+  <title>Login — OrbitalNet</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -19,12 +19,12 @@
       <nav id="mainNav" class="main-nav">
         <a href="/index.html">Home</a>
         <a href="/plans.html">Plans</a>
-        <a href="/coverage.html" class="active">Coverage</a>
+        <a href="/coverage.html">Coverage</a>
         <a href="/speedtest.html">Speed Test</a>
         <a href="/about.html">About</a>
         <a href="/gov-services.html">Gov Services</a>
         <a href="/support.html" class="btn btn-outline">Support</a>
-        <a id="loginLink" href="/login.html" class="btn btn-outline">Login</a>
+        <a id="loginLink" href="/login.html" class="active btn btn-outline">Login</a>
       </nav>
       <button class="nav-toggle" aria-label="Toggle menu">
         <span></span><span></span><span></span>
@@ -35,34 +35,30 @@
 
   <main class="container">
     <section class="page-hero">
-      <h1 class="reveal">Global Coverage</h1>
-      <p class="lead reveal" style="transition-delay:.05s">Service available across continents and oceans. Check availability in your area.</p>
+      <h1 class="reveal">Welcome back</h1>
+      <p class="lead reveal" style="transition-delay:.05s">Sign in to manage your OrbitalNet service.</p>
     </section>
 
-    <section class="map reveal">
-      <div class="map-embed">
-        <iframe title="World Map" src="https://www.openstreetmap.org/export/embed.html?bbox=-26.37%2C-49.78%2C44.47%2C62.59&amp;layer=mapnik" style="border:0"></iframe>
-      </div>
-      <div class="legend">
-        <span class="dot dot-available"></span> Available
-        <span class="dot dot-beta"></span> Beta
-        <span class="dot dot-soon"></span> Coming Soon
-      </div>
-    </section>
-
-    <section class="regions grid-3">
-      <div class="card reveal">
-        <h3>North America</h3>
-        <p>Full coverage including remote Alaska and Canadian territories.</p>
-      </div>
-      <div class="card reveal" style="transition-delay:.05s">
-        <h3>Europe</h3>
-        <p>Robust coverage with maritime lanes across the Atlantic and Med.</p>
-      </div>
-      <div class="card reveal" style="transition-delay:.1s">
-        <h3>Oceania</h3>
-        <p>Rural Australia and Pacific islands supported with strong capacity.</p>
-      </div>
+    <section class="reveal">
+      <form id="loginForm" class="contact-form" style="max-width:520px;margin:0 auto">
+        <h2>Login</h2>
+        <div class="form-grid">
+          <label class="full">
+            <span>Email</span>
+            <input required type="email" name="email" placeholder="you@example.com" />
+          </label>
+          <label class="full">
+            <span>Password</span>
+            <input required type="password" name="password" placeholder="••••••••" minlength="6" />
+          </label>
+          <label style="display:flex;align-items:center;gap:8px">
+            <input type="checkbox" name="remember" /> Remember me
+          </label>
+        </div>
+        <button class="btn btn-primary" type="submit">Sign in</button>
+        <a class="btn btn-ghost" href="/login.html?logout=1" style="margin-left:8px">Logout</a>
+        <div id="loginMsg" style="color:var(--muted);margin-top:10px"></div>
+      </form>
     </section>
   </main>
 

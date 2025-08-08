@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Government Services (Rural) — OrbitalNet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="icon" href="https://fav.farm/🛰️" />
+  <link rel="stylesheet" href="/assets/css/styles.css" />
+  <script defer src="/assets/js/main.js"></script>
+  <script defer src="/assets/js/auth.js"></script>
+  <script defer src="/assets/js/gov.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="/index.html" class="logo">🛰️ OrbitalNet</a>
+      <nav id="mainNav" class="main-nav">
+        <a href="/index.html">Home</a>
+        <a href="/plans.html">Plans</a>
+        <a href="/coverage.html">Coverage</a>
+        <a href="/speedtest.html">Speed Test</a>
+        <a href="/about.html">About</a>
+        <a href="/gov-services.html" class="active">Gov Services</a>
+        <a href="/support.html" class="btn btn-outline">Support</a>
+        <a id="loginLink" href="/login.html" class="btn btn-outline">Login</a>
+      </nav>
+      <button class="nav-toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="scroll-progress" aria-hidden="true"></div>
+  </header>
+
+  <main class="container">
+    <section class="page-hero">
+      <h1 class="reveal">Government Services for Rural Communities</h1>
+      <p class="lead reveal" style="transition-delay:.05s">Quick links to critical public services: healthcare, agriculture, IDs, weather alerts, subsidies, and more.</p>
+    </section>
+
+    <section class="reveal">
+      <div class="card" style="margin-bottom:14px">
+        <label for="regionSel" style="display:block;color:var(--muted);margin-bottom:6px">Select your region</label>
+        <select id="regionSel" style="width:100%;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:10px;color:var(--text)">
+          <option value="global">Global</option>
+          <option value="us">United States</option>
+          <option value="in">India</option>
+          <option value="uk">United Kingdom</option>
+          <option value="ca">Canada</option>
+          <option value="au">Australia</option>
+        </select>
+      </div>
+
+      <div class="grid-3" id="govGrid">
+        <!-- Global -->
+        <div class="card" data-region="global">
+          <h3>Emergency & Disaster</h3>
+          <p>Disaster preparedness, emergency alerts, and recovery assistance.</p>
+          <a class="btn btn-primary" target="_blank" rel="noopener" href="https://www.unisdr.org/">Open UNDRR</a>
+        </div>
+        <div class="card" data-region="global">
+          <h3>Agriculture & Weather</h3>
+          <p>Seasonal forecasts and climate data for farming decisions.</p>
+          <a class="btn btn-primary" target="_blank" rel="noopener" href="https://www.wmo.int/">Open WMO</a>
+        </div>
+        <div class="card" data-region="global">
+          <h3>Health Guidance</h3>
+          <p>Immunization guidance, disease outbreak updates.</p>
+          <a class="btn btn-primary" target="_blank" rel="noopener" href="https://www.who.int/">Open WHO</a>
+        </div>
+
+        <!-- United States -->
+        <div class="card" data-region="us">
+          <h3>USDA Farmers</h3>
+          <p>Loans, crop insurance, conservation and rural development programs.</p>
+          <a class="btn btn-primary" target="_blank" rel="noopener" href="https://www.usda.gov/">Visit USDA</a>
+        </div>
+        <div class="card" data-region="us">
+          <h3>Healthcare.gov</h3>
+          <p>Affordable Care Act plans and enrollment information.</p>
+          <a class="btn btn-primary" target="_blank" rel="noopener" href="https://www.healthcare.gov/">Open Site</a>
+        </div>
+        <div class="card" data-region="us">
+          <h3>NOAA Weather</h3>
+          <p>Local forecasts, radar, and severe weather alerts.</p>
+          <a class="btn btn-primary" target="_blank" rel="noopener" href="https://www.weather.gov/">Open NOAA</a>
+        </div>
+
+        <!-- India -->
+        <div class="card" data-region="in">
+          <h3>Digital Seva (CSC)</h3>
+          <p>Citizen services, certificates, bill payments via Common Service Centres.</p>
+          <a class="btn btn-primary" target="_blank" rel="noopener" href="https://digitalseva.csc.gov.in/">Open CSC</a>
+        </div>
+        <div class="card" data-region="in">
+          <h3>PM Kisan</h3>
+          <p>Income support for eligible farmer families.</p>
+          <a class="btn btn-primary" target="_blank" rel="noopener" href="https://pmkisan.gov.in/">Open PM Kisan</a>
+        </div>
+        <div class="card" data-region="in">
+          <h3>UIDAI Aadhaar</h3>
+          <p>Enrollment, updates, and Aadhaar services.</p>
+          <a class="btn btn-primary" target="_blank" rel="noopener" href="https://uidai.gov.in/">Open UIDAI</a>
+        </div>
+
+        <!-- United Kingdom -->
+        <div class="card" data-region="uk">
+          <h3>GOV.UK Rural Payments</h3>
+          <p>Subsidies, grants, and countryside stewardship.</p>
+          <a class="btn btn-primary" target="_blank" rel="noopener" href="https://www.gov.uk/rural-payments">Open Service</a>
+        </div>
+        <div class="card" data-region="uk">
+          <h3>NHS Services</h3>
+          <p>Find local clinics, vaccinations, and health advice.</p>
+          <a class="btn btn-primary" target="_blank" rel="noopener" href="https://www.nhs.uk/">Open NHS</a>
+        </div>
+
+        <!-- Canada -->
+        <div class="card" data-region="ca">
+          <h3>Service Canada</h3>
+          <p>Benefits, pensions, EI, and essential services.</p>
+          <a class="btn btn-primary" target="_blank" rel="noopener" href="https://www.canada.ca/en/employment-social-development/corporate/portfolio/service-canada.html">Open Site</a>
+        </div>
+        <div class="card" data-region="ca">
+          <h3>Environment & Climate</h3>
+          <p>Weather alerts and forecasts for your area.</p>
+          <a class="btn btn-primary" target="_blank" rel="noopener" href="https://weather.gc.ca/">Open Weather</a>
+        </div>
+
+        <!-- Australia -->
+        <div class="card" data-region="au">
+          <h3>myGov</h3>
+          <p>Access Centrelink, Medicare, and ATO in one place.</p>
+          <a class="btn btn-primary" target="_blank" rel="noopener" href="https://my.gov.au/">Open myGov</a>
+        </div>
+        <div class="card" data-region="au">
+          <h3>Bureau of Meteorology</h3>
+          <p>Forecasts, warnings, rainfall and radar for your region.</p>
+          <a class="btn btn-primary" target="_blank" rel="noopener" href="https://www.bom.gov.au/">Open BoM</a>
+        </div>
+      </div>
+      <p style="color:var(--muted);margin-top:10px">Links open official sites in a new tab. OrbitalNet is not affiliated with government agencies.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <div class="logo">🛰️ OrbitalNet</div>
+        <p>Connecting every horizon. © <span id="year"></span></p>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/coverage.html">Coverage</a></li>
+          <li><a href="/plans.html">Plans</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Support</h4>
+        <ul>
+          <li><a href="/support.html#faq">FAQ</a></li>
+          <li><a href="/support.html#contact">Contact</a></li>
+          <li><a href="/speedtest.html">Speed Test</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
