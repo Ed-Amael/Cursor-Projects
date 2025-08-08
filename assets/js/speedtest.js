@@ -95,39 +95,6 @@ async function measureUpload(signal, onProgress) {
   return { mbps, bytes, seconds: dt };
 }
 
-async function runTest() {
-  if (!startBtn) return;
-  startBtn.disabled = true;
-  cancelBtn.disabled = false;
-  controller = new AbortController();
-  const { signal } = controller;
-  latencyVal.textContent = '…';
-  downloadVal.textContent = '…';
-  uploadVal.textContent = '…';
-  rotateGauge(0);
-
-  try {
-    // Latency
-    const pingMs = await measureLatency(signal);
-    latencyVal.textContent = Math.round(pingMs).toString();
-
-    // Download with live gauge
-    const dl = await measureDownload(signal, (received) => {
-      const elapsed = Math.max(0.001, (performance.now() - startTs) / 1000);
-    });
-  } catch (e) {
-    if (signal.aborted) return finalize('Canceled');
-    console.error(e);
-    finalize('Error');
-    return;
-  }
-}
-
-function finalize(status) {
-  cancelBtn.disabled = true;
-  startBtn.disabled = false;
-}
-
 if (startBtn && cancelBtn) {
   startBtn.addEventListener('click', async () => {
     // full run with staged gauge progress
@@ -145,7 +112,6 @@ if (startBtn && cancelBtn) {
       latencyVal.textContent = Math.round(pingMs).toString();
 
       // Download
-      const bytesTarget = 30 * 1024 * 1024;
       const t0 = performance.now();
       const dlRes = await measureDownload(signal, (received) => {
         const dt = (performance.now() - t0) / 1000;
