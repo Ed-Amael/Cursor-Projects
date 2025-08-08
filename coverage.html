@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coverage — OrbitalNet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="icon" href="https://fav.farm/🛰️" />
+  <link rel="stylesheet" href="/assets/css/styles.css" />
+  <script defer src="/assets/js/main.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="/index.html" class="logo">🛰️ OrbitalNet</a>
+      <nav id="mainNav" class="main-nav">
+        <a href="/index.html">Home</a>
+        <a href="/plans.html">Plans</a>
+        <a href="/coverage.html" class="active">Coverage</a>
+        <a href="/speedtest.html">Speed Test</a>
+        <a href="/about.html">About</a>
+        <a href="/support.html" class="btn btn-outline">Support</a>
+      </nav>
+      <button class="nav-toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="scroll-progress" aria-hidden="true"></div>
+  </header>
+
+  <main class="container">
+    <section class="page-hero">
+      <h1 class="reveal">Global Coverage</h1>
+      <p class="lead reveal" style="transition-delay:.05s">Service available across continents and oceans. Check availability in your area.</p>
+    </section>
+
+    <section class="map reveal">
+      <div class="map-embed">
+        <iframe title="World Map" src="https://www.openstreetmap.org/export/embed.html?bbox=-26.37%2C-49.78%2C44.47%2C62.59&amp;layer=mapnik" style="border:0"></iframe>
+      </div>
+      <div class="legend">
+        <span class="dot dot-available"></span> Available
+        <span class="dot dot-beta"></span> Beta
+        <span class="dot dot-soon"></span> Coming Soon
+      </div>
+    </section>
+
+    <section class="regions grid-3">
+      <div class="card reveal">
+        <h3>North America</h3>
+        <p>Full coverage including remote Alaska and Canadian territories.</p>
+      </div>
+      <div class="card reveal" style="transition-delay:.05s">
+        <h3>Europe</h3>
+        <p>Robust coverage with maritime lanes across the Atlantic and Med.</p>
+      </div>
+      <div class="card reveal" style="transition-delay:.1s">
+        <h3>Oceania</h3>
+        <p>Rural Australia and Pacific islands supported with strong capacity.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <div class="logo">🛰️ OrbitalNet</div>
+        <p>Connecting every horizon. © <span id="year"></span></p>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/coverage.html">Coverage</a></li>
+          <li><a href="/plans.html">Plans</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Support</h4>
+        <ul>
+          <li><a href="/support.html#faq">FAQ</a></li>
+          <li><a href="/support.html#contact">Contact</a></li>
+          <li><a href="/speedtest.html">Speed Test</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

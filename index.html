@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OrbitalNet — Satellite Internet, Everywhere</title>
+  <meta name="description" content="OrbitalNet delivers fast, reliable satellite internet anywhere on Earth. Plans for home, business, RVs and maritime.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="icon" href="https://fav.farm/🛰️" />
+  <link rel="stylesheet" href="/assets/css/styles.css" />
+  <script defer src="/assets/js/main.js"></script>
+</head>
+<body>
+  <canvas id="starfield" aria-hidden="true"></canvas>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="/index.html" class="logo">🛰️ OrbitalNet</a>
+      <nav id="mainNav" class="main-nav">
+        <a href="/index.html" class="active">Home</a>
+        <a href="/plans.html">Plans</a>
+        <a href="/coverage.html">Coverage</a>
+        <a href="/speedtest.html">Speed Test</a>
+        <a href="/about.html">About</a>
+        <a href="/support.html" class="btn btn-outline">Support</a>
+      </nav>
+      <button class="nav-toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="scroll-progress" aria-hidden="true"></div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <h1 class="reveal">Satellite Internet, Reimagined</h1>
+          <p class="lead reveal" style="transition-delay: .05s">
+            High-speed, low-latency connectivity — from cities to the most remote horizons. Get online in minutes with OrbitalNet.
+          </p>
+          <div class="cta reveal" style="transition-delay: .1s">
+            <a href="/plans.html" class="btn btn-primary">View Plans</a>
+            <a href="/speedtest.html" class="btn btn-ghost">Run Speed Test</a>
+          </div>
+          <div class="hero-trust reveal" style="transition-delay: .15s">
+            <img alt="orbit" src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?q=80&w=1200&auto=format&fit=crop"/>
+            <div>
+              <strong>Trusted worldwide</strong>
+              <span>Serving 120+ countries and every ocean</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero-art reveal" style="transition-delay: .1s">
+          <img alt="satellite" src="https://images.unsplash.com/photo-1543946207-39bd91e70ca7?q=80&w=1200&auto=format&fit=crop"/>
+          <div class="orbit orbit-1"></div>
+          <div class="orbit orbit-2"></div>
+        </div>
+      </div>
+      <div class="gradient-glow" aria-hidden="true"></div>
+    </section>
+
+    <section class="features container">
+      <h2 class="section-title reveal">Why OrbitalNet</h2>
+      <div class="grid-3">
+        <div class="card reveal">
+          <div class="icon">⚡</div>
+          <h3>Fast Everywhere</h3>
+          <p>Stream, game, and video call with speeds up to 200 Mbps — from mountaintops to mid-ocean.</p>
+        </div>
+        <div class="card reveal" style="transition-delay: .05s">
+          <div class="icon">🛰️</div>
+          <h3>Modern Constellation</h3>
+          <p>Low-earth-orbit satellites for lower latency and a stable, resilient connection.</p>
+        </div>
+        <div class="card reveal" style="transition-delay: .1s">
+          <div class="icon">🧭</div>
+          <h3>Simple Setup</h3>
+          <p>Self-aligning dish and app-guided install. Online in under 10 minutes.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="plans-cta container">
+      <div class="cta-card reveal">
+        <div>
+          <h2>Plans for every journey</h2>
+          <p>Home, RV, maritime, or enterprise — flexible monthly plans with no annual contracts.</p>
+        </div>
+        <a href="/plans.html" class="btn btn-primary btn-lg">Explore Plans</a>
+      </div>
+    </section>
+
+    <section class="stats container">
+      <div class="stat reveal"><span class="stat-num" data-target="120">0</span><span class="stat-label">Countries</span></div>
+      <div class="stat reveal" style="transition-delay:.05s"><span class="stat-num" data-target="200">0</span><span class="stat-label">Mbps Peak</span></div>
+      <div class="stat reveal" style="transition-delay:.1s"><span class="stat-num" data-target="40">0</span><span class="stat-label">ms Median Ping</span></div>
+      <div class="stat reveal" style="transition-delay:.15s"><span class="stat-num" data-target="99.9">0</span><span class="stat-label">% Uptime</span></div>
+    </section>
+
+    <section class="testimonials container">
+      <h2 class="section-title reveal">Loved by Explorers</h2>
+      <div class="grid-3">
+        <blockquote class="card reveal">
+          <p>We stream in our RV under the stars. Zero buffers, just bliss.</p>
+          <footer>— Alex & Sam</footer>
+        </blockquote>
+        <blockquote class="card reveal" style="transition-delay:.05s">
+          <p>Remote island clinic online at last. Telemedicine works flawlessly.</p>
+          <footer>— Dr. N. Latu</footer>
+        </blockquote>
+        <blockquote class="card reveal" style="transition-delay:.1s">
+          <p>Fishing vessel ops are smoother with live data and crew calls.</p>
+          <footer>— Captain Ruiz</footer>
+        </blockquote>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <div class="logo">🛰️ OrbitalNet</div>
+        <p>Connecting every horizon. © <span id="year"></span></p>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/coverage.html">Coverage</a></li>
+          <li><a href="/plans.html">Plans</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Support</h4>
+        <ul>
+          <li><a href="/support.html#faq">FAQ</a></li>
+          <li><a href="/support.html#contact">Contact</a></li>
+          <li><a href="/speedtest.html">Speed Test</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
