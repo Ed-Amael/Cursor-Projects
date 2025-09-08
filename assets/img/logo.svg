@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" aria-labelledby="t"><title id="t">AuraSAT Logo</title>
+  <defs>
+    <linearGradient id="lg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0B1B3F"/>
+      <stop offset="100%" stop-color="#28A745"/>
+    </linearGradient>
+  </defs>
+  <circle cx="64" cy="64" r="56" fill="url(#lg)"/>
+  <g fill="#fff">
+    <circle cx="64" cy="48" r="10"/>
+    <path d="M30 76c14-8 54-8 68 0" stroke="#fff" stroke-width="6" fill="none" stroke-linecap="round"/>
+    <path d="M40 64c10-6 38-6 48 0" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round"/>
+  </g>
+</svg>
