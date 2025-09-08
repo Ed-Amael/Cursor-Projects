@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Weather | AuraSAT</title>
+  <meta name="description" content="Local weather dashboard for AuraSAT demo areas.">
+  <meta name="theme-color" content="#0B1B3F">
+  <link rel="icon" href="/assets/img/logo.svg">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="header">
+    <div class="container navbar" role="navigation" aria-label="Main">
+      <a class="logo" href="/index.html">
+        <img src="/assets/img/logo.svg" class="logo-img" alt="AuraSAT logo">
+        <span>AuraSAT</span>
+      </a>
+      <nav class="navlinks">
+        <a href="/index.html">Home</a>
+        <a href="/about.html">About</a>
+        <a href="/coverage.html">Coverage</a>
+        <a href="/weather.html">Weather</a>
+        <a href="/speedtest.html">Speed Test</a>
+        <a href="/plans.html">Plans</a>
+        <a href="/support.html">Support</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="section">
+    <div class="container">
+      <h1 class="mt-0">Weather dashboard</h1>
+      <p class="muted">Select a demo location. Add a valid OpenWeatherMap API key to enable live data.</p>
+
+      <div class="card mt-2">
+        <label for="weather-location">Location</label>
+        <select id="weather-location" class="mt-1"></select>
+        <small class="muted">Uses demo coordinates from the coverage page.</small>
+      </div>
+
+      <section class="mt-3 weather-grid" id="current-cards" aria-live="polite">
+        <div class="card"><h3>Temperature</h3><p class="muted" id="current-temp">—</p></div>
+        <div class="card"><h3>Humidity</h3><p class="muted" id="current-humidity">—</p></div>
+        <div class="card"><h3>Wind</h3><p class="muted" id="current-wind">—</p></div>
+        <div class="card"><h3>Rainfall</h3><p class="muted" id="current-rain">—</p></div>
+        <div class="card"><h3>Pressure</h3><p class="muted" id="current-pressure">—</p></div>
+      </section>
+
+      <section class="mt-3">
+        <h2 class="mt-0">7‑day forecast</h2>
+        <div id="forecast" class="grid mt-2"></div>
+      </section>
+
+      <section class="mt-3 grid">
+        <div class="chart-box">
+          <h3 class="mt-0">Temperature (°C)</h3>
+          <canvas id="chart-temp" height="120" aria-label="Temperature chart" role="img"></canvas>
+        </div>
+        <div class="chart-box">
+          <h3 class="mt-0">Wind (m/s)</h3>
+          <canvas id="chart-wind" height="120" aria-label="Wind chart" role="img"></canvas>
+        </div>
+      </section>
+
+      <section class="card mt-3">
+        <h2 class="mt-0">Connectivity tip</h2>
+        <p class="muted">Heavy rain may impact throughput—try placing your receiver with clear line‑of‑sight, minimize obstacles, and schedule large downloads for clearer weather.</p>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>AuraSAT</strong>
+        <p class="muted mt-1">Prototype project by students. Availability may vary by terrain, line‑of‑sight, and local conditions.</p>
+        <label class="mt-2" for="analytics-optin"><input id="analytics-optin" type="checkbox"> Opt‑in to anonymous analytics (placeholder)</label>
+      </div>
+      <div>
+        <h3 class="mt-0">Contact</h3>
+        <p class="muted">Email: <a href="mailto:hello@aurasat.example">hello@aurasat.example</a></p>
+        <div class="flex items-center" aria-label="Social links">
+          <a href="#" aria-label="Follow on X" class="mt-1">X</a>&nbsp;·&nbsp;
+          <a href="#" aria-label="Follow on Facebook" class="mt-1">Facebook</a>&nbsp;·&nbsp;
+          <a href="#" aria-label="Watch on YouTube" class="mt-1">YouTube</a>
+        </div>
+      </div>
+      <div>
+        <h3 class="mt-0">Legal</h3>
+        <p class="muted"><a href="#">Privacy</a> · <a href="#">Terms</a></p>
+        <small class="muted">Plan details are indicative and may change during pilot.</small>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+  <script src="/assets/js/config.js" defer></script>
+  <script src="/assets/js/main.js" defer></script>
+  <script src="/assets/js/weather.js" defer></script>
+</body>
+</html>

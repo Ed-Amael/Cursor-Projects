@@ -1,89 +1,124 @@
-// Year in footer
-const yearSpan = document.getElementById('year');
-if (yearSpan) yearSpan.textContent = new Date().getFullYear();
+(function () {
+  'use strict';
 
-// Mobile nav toggle
-const navToggle = document.querySelector('.nav-toggle');
-const mainNav = document.getElementById('mainNav');
-if (navToggle && mainNav) {
-  navToggle.addEventListener('click', () => mainNav.classList.toggle('open'));
-}
+  function $(selector, root) { return (root || document).querySelector(selector); }
+  function $all(selector, root) { return Array.from((root || document).querySelectorAll(selector)); }
 
-// Scroll progress bar
-const scrollBar = document.querySelector('.scroll-progress');
-if (scrollBar) {
-  const onScroll = () => {
-    const h = document.documentElement;
-    const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight);
-    scrollBar.style.width = `${scrolled * 100}%`;
-  };
-  document.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
-}
+  function setActiveNav() {
+    const path = location.pathname.split('/').pop() || 'index.html';
+    $all('.navlinks a').forEach(a => {
+      const href = a.getAttribute('href');
+      if ((path === '' && href.endsWith('index.html')) || href.endsWith(path)) {
+        a.classList.add('active');
+      }
+    });
+  }
 
-// Reveal on scroll
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('revealed');
-      observer.unobserve(entry.target);
+  function setupHeaderShadow() {
+    const header = $('.header');
+    if (!header) return;
+    let last = 0;
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY || document.documentElement.scrollTop;
+      if (y > 4 && last <= 4) {
+        header.style.boxShadow = '0 2px 12px rgba(11,27,63,0.18)';
+      } else if (y <= 4 && last > 4) {
+        header.style.boxShadow = '0 2px 8px rgba(11,27,63,0.15)';
+      }
+      last = y;
+    }, { passive: true });
+  }
+
+  // Toasts
+  function createToastContainer() {
+    let el = $('#toast');
+    if (!el) {
+      el = document.createElement('div');
+      el.id = 'toast';
+      el.setAttribute('role', 'status');
+      el.setAttribute('aria-live', 'polite');
+      el.className = 'toast';
+      document.body.appendChild(el);
     }
+    return el;
+  }
+  function showToast(message, type) {
+    const el = createToastContainer();
+    el.textContent = message;
+    el.classList.remove('success', 'error', 'show');
+    if (type) el.classList.add(type);
+    requestAnimationFrame(() => el.classList.add('show'));
+    window.clearTimeout(el._t);
+    el._t = window.setTimeout(() => el.classList.remove('show'), 3200);
+  }
+  window.AuraToast = { show: showToast };
+
+  // Forms: interest (index) and contact (support)
+  function setupForms() {
+    const interest = $('#interest-form');
+    if (interest) {
+      interest.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = interest.querySelector('[name="name"]').value.trim();
+        const email = interest.querySelector('[name="email"]').value.trim();
+        const location = interest.querySelector('[name="location"]').value.trim();
+        if (!name || !email || !location) {
+          showToast('Please fill out all fields.', 'error');
+          return;
+        }
+        showToast('Thanks! We\'ll be in touch as coverage expands.', 'success');
+        interest.reset();
+      });
+    }
+
+    const contact = $('#contact-form');
+    if (contact) {
+      contact.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = contact.querySelector('[name="name"]').value.trim();
+        const email = contact.querySelector('[name="email"]').value.trim();
+        const message = contact.querySelector('[name="message"]').value.trim();
+        if (!name || !email || !message) {
+          showToast('Please complete all required fields.', 'error');
+          return;
+        }
+        showToast('Message sent! We\'ll reply by email soon.', 'success');
+        contact.reset();
+      });
+    }
+  }
+
+  // Simple analytics opt-in placeholder (no tracking by default)
+  function setupAnalyticsToggle() {
+    const toggle = $('#analytics-optin');
+    if (!toggle) return;
+    const saved = localStorage.getItem('aurasat.analytics.optin') === 'true';
+    toggle.checked = saved;
+    toggle.addEventListener('change', () => {
+      const on = toggle.checked;
+      localStorage.setItem('aurasat.analytics.optin', String(on));
+      if (on) {
+        console.log('[AuraSAT] Analytics enabled (placeholder, no tracking by default).');
+      } else {
+        console.log('[AuraSAT] Analytics disabled.');
+      }
+    });
+  }
+
+  // Register Service Worker
+  function registerSW() {
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js').catch(() => {});
+      });
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    setActiveNav();
+    setupHeaderShadow();
+    setupForms();
+    setupAnalyticsToggle();
+    registerSW();
   });
-}, { threshold: 0.18 });
-
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-// Count up stats
-function animateCount(el) {
-  const target = parseFloat(el.getAttribute('data-target'));
-  const isPercent = el.textContent.includes('%');
-  let start = 0;
-  const duration = 1200;
-  const startTs = performance.now();
-  const step = (ts) => {
-    const p = Math.min(1, (ts - startTs) / duration);
-    const val = start + (target - start) * p;
-    el.textContent = (isPercent ? val.toFixed(1) : Math.round(val)).toString();
-    if (p < 1) requestAnimationFrame(step);
-  };
-  requestAnimationFrame(step);
-}
-
-document.querySelectorAll('.stat-num').forEach(el => animateCount(el));
-
-// Starfield background (lightweight)
-(function starfield() {
-  const canvas = document.getElementById('starfield');
-  if (!canvas) return;
-  const ctx = canvas.getContext('2d');
-  let width, height, stars;
-  const STAR_COUNT = 180;
-  function resize() {
-    width = canvas.width = window.innerWidth;
-    height = canvas.height = window.innerHeight;
-    stars = Array.from({ length: STAR_COUNT }, () => ({
-      x: Math.random() * width,
-      y: Math.random() * height,
-      z: Math.random() * 0.7 + 0.3,
-      vx: (Math.random() - 0.5) * 0.15,
-      vy: (Math.random() - 0.5) * 0.15,
-    }));
-  }
-  window.addEventListener('resize', resize);
-  resize();
-  function tick() {
-    ctx.clearRect(0, 0, width, height);
-    for (const s of stars) {
-      s.x += s.vx; s.y += s.vy;
-      if (s.x < -5) s.x = width + 5; if (s.x > width + 5) s.x = -5;
-      if (s.y < -5) s.y = height + 5; if (s.y > height + 5) s.y = -5;
-      const size = s.z * 1.6;
-      ctx.fillStyle = `rgba(${120 + s.z*80}, ${170 + s.z*60}, 255, ${0.35 + s.z*0.4})`;
-      ctx.beginPath();
-      ctx.arc(s.x, s.y, size, 0, Math.PI * 2);
-      ctx.fill();
-    }
-    requestAnimationFrame(tick);
-  }
-  tick();
 })();
